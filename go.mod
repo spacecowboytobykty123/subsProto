@@ -1,1 +1,1 @@
-module subsProto
+module github.com/spacecowboytobykty123/subsProto
