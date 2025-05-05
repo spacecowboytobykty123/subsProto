@@ -34,7 +34,7 @@ enum Duration {
 }
 
 message SubsRequest {
-  int32 plan_id = 2;
+  int32 plan_id = 1;
 }
 
 message SubsResponse {
@@ -43,7 +43,7 @@ message SubsResponse {
 }
 
 message ChangePlanRequest {
-  int32 new_plan_id = 2;
+  int32 new_plan_id = 1;
 }
 
 message ChangePlanResponse {

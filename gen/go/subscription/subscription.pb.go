@@ -142,7 +142,7 @@ func (Duration) EnumDescriptor() ([]byte, []int) {
 
 type SubsRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	PlanId        int32                  `protobuf:"varint,2,opt,name=plan_id,json=planId,proto3" json:"plan_id,omitempty"`
+	PlanId        int32                  `protobuf:"varint,1,opt,name=plan_id,json=planId,proto3" json:"plan_id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -238,7 +238,7 @@ func (x *SubsResponse) GetStatus() Status {
 
 type ChangePlanRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	NewPlanId     int32                  `protobuf:"varint,2,opt,name=new_plan_id,json=newPlanId,proto3" json:"new_plan_id,omitempty"`
+	NewPlanId     int32                  `protobuf:"varint,1,opt,name=new_plan_id,json=newPlanId,proto3" json:"new_plan_id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -766,12 +766,12 @@ const file_subscription_subscription_proto_rawDesc = "" +
 	"\n" +
 	"\x1fsubscription/subscription.proto\x12\fsubscription\"&\n" +
 	"\vSubsRequest\x12\x17\n" +
-	"\aplan_id\x18\x02 \x01(\x05R\x06planId\"S\n" +
+	"\aplan_id\x18\x01 \x01(\x05R\x06planId\"S\n" +
 	"\fSubsResponse\x12\x15\n" +
 	"\x06sub_id\x18\x01 \x01(\x03R\x05subId\x12,\n" +
 	"\x06status\x18\x02 \x01(\x0e2\x14.subscription.StatusR\x06status\"3\n" +
 	"\x11ChangePlanRequest\x12\x1e\n" +
-	"\vnew_plan_id\x18\x02 \x01(\x05R\tnewPlanId\"B\n" +
+	"\vnew_plan_id\x18\x01 \x01(\x05R\tnewPlanId\"B\n" +
 	"\x12ChangePlanResponse\x12,\n" +
 	"\x06status\x18\x01 \x01(\x0e2\x14.subscription.StatusR\x06status\"\x0f\n" +
 	"\rUnSubsRequest\">\n" +
