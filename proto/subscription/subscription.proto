@@ -3,8 +3,49 @@ syntax = "proto3";
 package subscription;
 
 option go_package = "tsubs.v1;subs";
+import "google/api/annotations.proto";
 
 service Subscription {
+  rpc Subscribe (SubsRequest) returns (SubsResponse) {
+    option (google.api.http) = {
+      post: "/v1/subscription"
+      body: "*"
+    };
+  }
+
+  rpc ChangeSubsPlan (ChangePlanRequest) returns (ChangePlanResponse) {
+    option (google.api.http) = {
+      put: "/v1/subscription/plan"
+      body: "*"
+    };
+  }
+
+  rpc Unsubscribe (UnSubsRequest) returns (UnSubsResponse) {
+    option (google.api.http) = {
+      delete: "/v1/subscription"
+    };
+  }
+
+  rpc GetSubDetails (GetSubRequest) returns (GetSubResponse) {
+    option (google.api.http) = {
+      get: "/v1/subscription"
+    };
+  }
+
+  rpc CheckSubscription (CheckSubsRequest) returns (CheckSubsResponse) {
+    option (google.api.http) = {
+      get: "/v1/subscription/check"
+    };
+  }
+
+  rpc ListPlans (PlansRequest) returns (PlansResponse) {
+    option (google.api.http) = {
+      get: "/v1/subscription/plans"
+    };
+  }
+}
+
+service SubscriptionService {
   rpc Subscribe (SubsRequest) returns (SubsResponse);
   rpc ChangeSubsPlan (ChangePlanRequest) returns (ChangePlanResponse);
   rpc Unsubscribe (UnSubsRequest) returns (UnSubsResponse);
@@ -49,15 +90,15 @@ message ChangePlanResponse {
   Status status = 1;
 }
 
-message UnSubsRequest{}
+message UnSubsRequest {}
 
-message UnSubsResponse{
+message UnSubsResponse {
   Status status = 1;
 }
 
-message GetSubRequest{}
+message GetSubRequest {}
 
-message GetSubResponse{
+message GetSubResponse {
   int64 user_id = 1;
   int32 plan_id = 2;
   string plan_name = 3;
@@ -65,9 +106,9 @@ message GetSubResponse{
   string expires_at = 5;
 }
 
-message CheckSubsRequest{}
+message CheckSubsRequest {}
 
-message CheckSubsResponse{
+message CheckSubsResponse {
   Status sub_status = 1;
 }
 
