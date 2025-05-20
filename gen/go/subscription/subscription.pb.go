@@ -7,8 +7,6 @@
 package subs
 
 import (
-	_ "github.com/grpc-ecosystem/grpc-gateway/v2/protoc-gen-openapiv2/options"
-	_ "google.golang.org/genproto/googleapis/api/annotations"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
@@ -766,7 +764,7 @@ var File_subscription_subscription_proto protoreflect.FileDescriptor
 
 const file_subscription_subscription_proto_rawDesc = "" +
 	"\n" +
-	"\x1fsubscription/subscription.proto\x12\fsubscription\x1a\x1cgoogle/api/annotations.proto\x1a.protoc-gen-openapiv2/options/annotations.proto\"&\n" +
+	"\x1fsubscription/subscription.proto\x12\fsubscription\"&\n" +
 	"\vSubsRequest\x12\x17\n" +
 	"\aplan_id\x18\x01 \x01(\x05R\x06planId\"S\n" +
 	"\fSubsResponse\x12\x15\n" +
@@ -815,23 +813,14 @@ const file_subscription_subscription_proto_rawDesc = "" +
 	"\x10DURATION_1_MONTH\x10\x01\x12\x15\n" +
 	"\x11DURATION_3_MONTHS\x10\x03\x12\x15\n" +
 	"\x11DURATION_6_MONTHS\x10\x06\x12\x16\n" +
-	"\x12DURATION_12_MONTHS\x10\f2\x8c\x05\n" +
-	"\x13SubscriptionService\x12`\n" +
-	"\tSubscribe\x12\x19.subscription.SubsRequest\x1a\x1a.subscription.SubsResponse\"\x1c\x82\xd3\xe4\x93\x02\x16:\x01*\"\x11/v1/subscriptions\x12v\n" +
-	"\x0eChangeSubsPlan\x12\x1f.subscription.ChangePlanRequest\x1a .subscription.ChangePlanResponse\"!\x82\xd3\xe4\x93\x02\x1b:\x01*2\x16/v1/subscriptions/plan\x12c\n" +
-	"\vUnsubscribe\x12\x1b.subscription.UnSubsRequest\x1a\x1c.subscription.UnSubsResponse\"\x19\x82\xd3\xe4\x93\x02\x13*\x11/v1/subscriptions\x12e\n" +
-	"\rGetSubDetails\x12\x1b.subscription.GetSubRequest\x1a\x1c.subscription.GetSubResponse\"\x19\x82\xd3\xe4\x93\x02\x13\x12\x11/v1/subscriptions\x12v\n" +
-	"\x11CheckSubscription\x12\x1e.subscription.CheckSubsRequest\x1a\x1f.subscription.CheckSubsResponse\" \x82\xd3\xe4\x93\x02\x1a\x12\x18/v1/subscriptions/status\x12W\n" +
-	"\tListPlans\x12\x1a.subscription.PlansRequest\x1a\x1b.subscription.PlansResponse\"\x11\x82\xd3\xe4\x93\x02\v\x12\t/v1/plans2\xd9\x03\n" +
+	"\x12DURATION_12_MONTHS\x10\f2\xd9\x03\n" +
 	"\fSubscription\x12B\n" +
 	"\tSubscribe\x12\x19.subscription.SubsRequest\x1a\x1a.subscription.SubsResponse\x12S\n" +
 	"\x0eChangeSubsPlan\x12\x1f.subscription.ChangePlanRequest\x1a .subscription.ChangePlanResponse\x12H\n" +
 	"\vUnsubscribe\x12\x1b.subscription.UnSubsRequest\x1a\x1c.subscription.UnSubsResponse\x12J\n" +
 	"\rGetSubDetails\x12\x1b.subscription.GetSubRequest\x1a\x1c.subscription.GetSubResponse\x12T\n" +
 	"\x11CheckSubscription\x12\x1e.subscription.CheckSubsRequest\x1a\x1f.subscription.CheckSubsResponse\x12D\n" +
-	"\tListPlans\x12\x1a.subscription.PlansRequest\x1a\x1b.subscription.PlansResponseB\xc0\x01\x92A\xad\x01\x12\x83\x01\n" +
-	"\x10Subscription API\x12-Manage user subscriptions and available plans\";\n" +
-	"\aSupport\x12\x1bhttps://example.com/support\x1a\x13support@example.com2\x031.0*\x01\x012\x10application/json:\x10application/jsonZ\rtsubs.v1;subsb\x06proto3"
+	"\tListPlans\x12\x1a.subscription.PlansRequest\x1a\x1b.subscription.PlansResponseB\x0fZ\rtsubs.v1;subsb\x06proto3"
 
 var (
 	file_subscription_subscription_proto_rawDescOnce sync.Once
@@ -871,32 +860,20 @@ var file_subscription_subscription_proto_depIdxs = []int32{
 	0,  // 3: subscription.CheckSubsResponse.sub_status:type_name -> subscription.Status
 	14, // 4: subscription.PlansResponse.plans:type_name -> subscription.Plan
 	1,  // 5: subscription.Plan.duration:type_name -> subscription.Duration
-	2,  // 6: subscription.SubscriptionService.Subscribe:input_type -> subscription.SubsRequest
-	4,  // 7: subscription.SubscriptionService.ChangeSubsPlan:input_type -> subscription.ChangePlanRequest
-	6,  // 8: subscription.SubscriptionService.Unsubscribe:input_type -> subscription.UnSubsRequest
-	8,  // 9: subscription.SubscriptionService.GetSubDetails:input_type -> subscription.GetSubRequest
-	10, // 10: subscription.SubscriptionService.CheckSubscription:input_type -> subscription.CheckSubsRequest
-	12, // 11: subscription.SubscriptionService.ListPlans:input_type -> subscription.PlansRequest
-	2,  // 12: subscription.Subscription.Subscribe:input_type -> subscription.SubsRequest
-	4,  // 13: subscription.Subscription.ChangeSubsPlan:input_type -> subscription.ChangePlanRequest
-	6,  // 14: subscription.Subscription.Unsubscribe:input_type -> subscription.UnSubsRequest
-	8,  // 15: subscription.Subscription.GetSubDetails:input_type -> subscription.GetSubRequest
-	10, // 16: subscription.Subscription.CheckSubscription:input_type -> subscription.CheckSubsRequest
-	12, // 17: subscription.Subscription.ListPlans:input_type -> subscription.PlansRequest
-	3,  // 18: subscription.SubscriptionService.Subscribe:output_type -> subscription.SubsResponse
-	5,  // 19: subscription.SubscriptionService.ChangeSubsPlan:output_type -> subscription.ChangePlanResponse
-	7,  // 20: subscription.SubscriptionService.Unsubscribe:output_type -> subscription.UnSubsResponse
-	9,  // 21: subscription.SubscriptionService.GetSubDetails:output_type -> subscription.GetSubResponse
-	11, // 22: subscription.SubscriptionService.CheckSubscription:output_type -> subscription.CheckSubsResponse
-	13, // 23: subscription.SubscriptionService.ListPlans:output_type -> subscription.PlansResponse
-	3,  // 24: subscription.Subscription.Subscribe:output_type -> subscription.SubsResponse
-	5,  // 25: subscription.Subscription.ChangeSubsPlan:output_type -> subscription.ChangePlanResponse
-	7,  // 26: subscription.Subscription.Unsubscribe:output_type -> subscription.UnSubsResponse
-	9,  // 27: subscription.Subscription.GetSubDetails:output_type -> subscription.GetSubResponse
-	11, // 28: subscription.Subscription.CheckSubscription:output_type -> subscription.CheckSubsResponse
-	13, // 29: subscription.Subscription.ListPlans:output_type -> subscription.PlansResponse
-	18, // [18:30] is the sub-list for method output_type
-	6,  // [6:18] is the sub-list for method input_type
+	2,  // 6: subscription.Subscription.Subscribe:input_type -> subscription.SubsRequest
+	4,  // 7: subscription.Subscription.ChangeSubsPlan:input_type -> subscription.ChangePlanRequest
+	6,  // 8: subscription.Subscription.Unsubscribe:input_type -> subscription.UnSubsRequest
+	8,  // 9: subscription.Subscription.GetSubDetails:input_type -> subscription.GetSubRequest
+	10, // 10: subscription.Subscription.CheckSubscription:input_type -> subscription.CheckSubsRequest
+	12, // 11: subscription.Subscription.ListPlans:input_type -> subscription.PlansRequest
+	3,  // 12: subscription.Subscription.Subscribe:output_type -> subscription.SubsResponse
+	5,  // 13: subscription.Subscription.ChangeSubsPlan:output_type -> subscription.ChangePlanResponse
+	7,  // 14: subscription.Subscription.Unsubscribe:output_type -> subscription.UnSubsResponse
+	9,  // 15: subscription.Subscription.GetSubDetails:output_type -> subscription.GetSubResponse
+	11, // 16: subscription.Subscription.CheckSubscription:output_type -> subscription.CheckSubsResponse
+	13, // 17: subscription.Subscription.ListPlans:output_type -> subscription.PlansResponse
+	12, // [12:18] is the sub-list for method output_type
+	6,  // [6:12] is the sub-list for method input_type
 	6,  // [6:6] is the sub-list for extension type_name
 	6,  // [6:6] is the sub-list for extension extendee
 	0,  // [0:6] is the sub-list for field type_name
@@ -915,7 +892,7 @@ func file_subscription_subscription_proto_init() {
 			NumEnums:      2,
 			NumMessages:   13,
 			NumExtensions: 0,
-			NumServices:   2,
+			NumServices:   1,
 		},
 		GoTypes:           file_subscription_subscription_proto_goTypes,
 		DependencyIndexes: file_subscription_subscription_proto_depIdxs,
