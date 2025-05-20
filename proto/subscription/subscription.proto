@@ -4,6 +4,67 @@ package subscription;
 
 option go_package = "tsubs.v1;subs";
 
+import "google/api/annotations.proto";
+import "protoc-gen-openapiv2/options/annotations.proto";
+
+
+option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {
+  info: {
+    title: "Subscription API";
+    version: "1.0";
+    description: "Manage user subscriptions and available plans";
+    contact: {
+      name: "Support";
+      url: "https://example.com/support";
+      email: "support@example.com";
+    };
+  };
+  schemes: HTTP;
+  consumes: "application/json";
+  produces: "application/json";
+};
+
+
+service SubscriptionService {
+  rpc Subscribe (SubsRequest) returns (SubsResponse) {
+    option (google.api.http) = {
+      post: "/v1/subscriptions"
+      body: "*"
+    };
+  }
+
+  rpc ChangeSubsPlan (ChangePlanRequest) returns (ChangePlanResponse) {
+    option (google.api.http) = {
+      patch: "/v1/subscriptions/plan"
+      body: "*"
+    };
+  }
+
+  rpc Unsubscribe (UnSubsRequest) returns (UnSubsResponse) {
+    option (google.api.http) = {
+      delete: "/v1/subscriptions"
+    };
+  }
+
+  rpc GetSubDetails (GetSubRequest) returns (GetSubResponse) {
+    option (google.api.http) = {
+      get: "/v1/subscriptions"
+    };
+  }
+
+  rpc CheckSubscription (CheckSubsRequest) returns (CheckSubsResponse) {
+    option (google.api.http) = {
+      get: "/v1/subscriptions/status"
+    };
+  }
+
+  rpc ListPlans (PlansRequest) returns (PlansResponse) {
+    option (google.api.http) = {
+      get: "/v1/plans"
+    };
+  }
+}
+
 
 service Subscription {
   rpc Subscribe (SubsRequest) returns (SubsResponse);
