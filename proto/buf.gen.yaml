@@ -1,19 +1,19 @@
 version: v1
 plugins:
   - plugin: go
-    out: gen/go
+    out: C:/Users/Еркебулан/GolandProjects/subsProto/gen/go
     opt: paths=source_relative
 
   - plugin: go-grpc
-    out: gen/go
+    out: C:/Users/Еркебулан/GolandProjects/subsProto/gen/go
     opt: paths=source_relative
 
   - plugin: grpc-gateway
-    out: gen/go
+    out: C:/Users/Еркебулан/GolandProjects/subsProto/gen/go
     opt: paths=source_relative
 
   - plugin: openapiv2
-    out: gen/swagger
+    out: C:/Users/Еркебулан/GolandProjects/subsProto/gen/swagger
     opt:
       - logtostderr=true
       - allow_merge=true
