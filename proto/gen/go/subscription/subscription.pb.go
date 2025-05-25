@@ -1043,14 +1043,16 @@ const file_subscription_subscription_proto_rawDesc = "" +
 	"\x11CheckSubscription\x12\x1e.subscription.CheckSubsRequest\x1a\x1f.subscription.CheckSubsResponse\"\x1e\x82\xd3\xe4\x93\x02\x18\x12\x16/v1/subscription/check\x12d\n" +
 	"\tListPlans\x12\x1a.subscription.PlansRequest\x1a\x1b.subscription.PlansResponse\"\x1e\x82\xd3\xe4\x93\x02\x18\x12\x16/v1/subscription/plans\x12\x8c\x01\n" +
 	"\x12ExtractFromBalance\x12'.subscription.ExtractFromBalanceRequest\x1a(.subscription.ExtractFromBalanceResponse\"#\x82\xd3\xe4\x93\x02\x1d:\x01*2\x18/v1/subscription/extract\x12v\n" +
-	"\fAddToBalance\x12!.subscription.AddToBalanceRequest\x1a\".subscription.AddToBalanceResponse\"\x1f\x82\xd3\xe4\x93\x02\x19:\x01*2\x14/v1/subscription/add2\xe0\x03\n" +
+	"\fAddToBalance\x12!.subscription.AddToBalanceRequest\x1a\".subscription.AddToBalanceResponse\"\x1f\x82\xd3\xe4\x93\x02\x19:\x01*2\x14/v1/subscription/add2\xa0\x05\n" +
 	"\x13SubscriptionService\x12B\n" +
 	"\tSubscribe\x12\x19.subscription.SubsRequest\x1a\x1a.subscription.SubsResponse\x12S\n" +
 	"\x0eChangeSubsPlan\x12\x1f.subscription.ChangePlanRequest\x1a .subscription.ChangePlanResponse\x12H\n" +
 	"\vUnsubscribe\x12\x1b.subscription.UnSubsRequest\x1a\x1c.subscription.UnSubsResponse\x12J\n" +
 	"\rGetSubDetails\x12\x1b.subscription.GetSubRequest\x1a\x1c.subscription.GetSubResponse\x12T\n" +
 	"\x11CheckSubscription\x12\x1e.subscription.CheckSubsRequest\x1a\x1f.subscription.CheckSubsResponse\x12D\n" +
-	"\tListPlans\x12\x1a.subscription.PlansRequest\x1a\x1b.subscription.PlansResponseB\x0fZ\rtsubs.v1;subsb\x06proto3"
+	"\tListPlans\x12\x1a.subscription.PlansRequest\x1a\x1b.subscription.PlansResponse\x12U\n" +
+	"\fAddToBalance\x12!.subscription.AddToBalanceRequest\x1a\".subscription.AddToBalanceResponse\x12g\n" +
+	"\x12ExtractFromBalance\x12'.subscription.ExtractFromBalanceRequest\x1a(.subscription.ExtractFromBalanceResponseB\x0fZ\rtsubs.v1;subsb\x06proto3"
 
 var (
 	file_subscription_subscription_proto_rawDescOnce sync.Once
@@ -1110,22 +1112,26 @@ var file_subscription_subscription_proto_depIdxs = []int32{
 	8,  // 19: subscription.SubscriptionService.GetSubDetails:input_type -> subscription.GetSubRequest
 	10, // 20: subscription.SubscriptionService.CheckSubscription:input_type -> subscription.CheckSubsRequest
 	12, // 21: subscription.SubscriptionService.ListPlans:input_type -> subscription.PlansRequest
-	3,  // 22: subscription.Subscription.Subscribe:output_type -> subscription.SubsResponse
-	5,  // 23: subscription.Subscription.ChangeSubsPlan:output_type -> subscription.ChangePlanResponse
-	7,  // 24: subscription.Subscription.Unsubscribe:output_type -> subscription.UnSubsResponse
-	9,  // 25: subscription.Subscription.GetSubDetails:output_type -> subscription.GetSubResponse
-	11, // 26: subscription.Subscription.CheckSubscription:output_type -> subscription.CheckSubsResponse
-	13, // 27: subscription.Subscription.ListPlans:output_type -> subscription.PlansResponse
-	16, // 28: subscription.Subscription.ExtractFromBalance:output_type -> subscription.ExtractFromBalanceResponse
-	18, // 29: subscription.Subscription.AddToBalance:output_type -> subscription.AddToBalanceResponse
-	3,  // 30: subscription.SubscriptionService.Subscribe:output_type -> subscription.SubsResponse
-	5,  // 31: subscription.SubscriptionService.ChangeSubsPlan:output_type -> subscription.ChangePlanResponse
-	7,  // 32: subscription.SubscriptionService.Unsubscribe:output_type -> subscription.UnSubsResponse
-	9,  // 33: subscription.SubscriptionService.GetSubDetails:output_type -> subscription.GetSubResponse
-	11, // 34: subscription.SubscriptionService.CheckSubscription:output_type -> subscription.CheckSubsResponse
-	13, // 35: subscription.SubscriptionService.ListPlans:output_type -> subscription.PlansResponse
-	22, // [22:36] is the sub-list for method output_type
-	8,  // [8:22] is the sub-list for method input_type
+	17, // 22: subscription.SubscriptionService.AddToBalance:input_type -> subscription.AddToBalanceRequest
+	15, // 23: subscription.SubscriptionService.ExtractFromBalance:input_type -> subscription.ExtractFromBalanceRequest
+	3,  // 24: subscription.Subscription.Subscribe:output_type -> subscription.SubsResponse
+	5,  // 25: subscription.Subscription.ChangeSubsPlan:output_type -> subscription.ChangePlanResponse
+	7,  // 26: subscription.Subscription.Unsubscribe:output_type -> subscription.UnSubsResponse
+	9,  // 27: subscription.Subscription.GetSubDetails:output_type -> subscription.GetSubResponse
+	11, // 28: subscription.Subscription.CheckSubscription:output_type -> subscription.CheckSubsResponse
+	13, // 29: subscription.Subscription.ListPlans:output_type -> subscription.PlansResponse
+	16, // 30: subscription.Subscription.ExtractFromBalance:output_type -> subscription.ExtractFromBalanceResponse
+	18, // 31: subscription.Subscription.AddToBalance:output_type -> subscription.AddToBalanceResponse
+	3,  // 32: subscription.SubscriptionService.Subscribe:output_type -> subscription.SubsResponse
+	5,  // 33: subscription.SubscriptionService.ChangeSubsPlan:output_type -> subscription.ChangePlanResponse
+	7,  // 34: subscription.SubscriptionService.Unsubscribe:output_type -> subscription.UnSubsResponse
+	9,  // 35: subscription.SubscriptionService.GetSubDetails:output_type -> subscription.GetSubResponse
+	11, // 36: subscription.SubscriptionService.CheckSubscription:output_type -> subscription.CheckSubsResponse
+	13, // 37: subscription.SubscriptionService.ListPlans:output_type -> subscription.PlansResponse
+	18, // 38: subscription.SubscriptionService.AddToBalance:output_type -> subscription.AddToBalanceResponse
+	16, // 39: subscription.SubscriptionService.ExtractFromBalance:output_type -> subscription.ExtractFromBalanceResponse
+	24, // [24:40] is the sub-list for method output_type
+	8,  // [8:24] is the sub-list for method input_type
 	8,  // [8:8] is the sub-list for extension type_name
 	8,  // [8:8] is the sub-list for extension extendee
 	0,  // [0:8] is the sub-list for field type_name

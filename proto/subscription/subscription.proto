@@ -67,6 +67,8 @@ service SubscriptionService {
   rpc GetSubDetails (GetSubRequest) returns (GetSubResponse);
   rpc CheckSubscription (CheckSubsRequest) returns (CheckSubsResponse);
   rpc ListPlans (PlansRequest) returns (PlansResponse);
+  rpc AddToBalance (AddToBalanceRequest) returns (AddToBalanceResponse);
+  rpc ExtractFromBalance (ExtractFromBalanceRequest) returns (ExtractFromBalanceResponse);
 }
 
 enum Status {

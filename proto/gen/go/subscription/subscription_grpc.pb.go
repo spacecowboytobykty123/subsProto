@@ -387,12 +387,14 @@ var Subscription_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	SubscriptionService_Subscribe_FullMethodName         = "/subscription.SubscriptionService/Subscribe"
-	SubscriptionService_ChangeSubsPlan_FullMethodName    = "/subscription.SubscriptionService/ChangeSubsPlan"
-	SubscriptionService_Unsubscribe_FullMethodName       = "/subscription.SubscriptionService/Unsubscribe"
-	SubscriptionService_GetSubDetails_FullMethodName     = "/subscription.SubscriptionService/GetSubDetails"
-	SubscriptionService_CheckSubscription_FullMethodName = "/subscription.SubscriptionService/CheckSubscription"
-	SubscriptionService_ListPlans_FullMethodName         = "/subscription.SubscriptionService/ListPlans"
+	SubscriptionService_Subscribe_FullMethodName          = "/subscription.SubscriptionService/Subscribe"
+	SubscriptionService_ChangeSubsPlan_FullMethodName     = "/subscription.SubscriptionService/ChangeSubsPlan"
+	SubscriptionService_Unsubscribe_FullMethodName        = "/subscription.SubscriptionService/Unsubscribe"
+	SubscriptionService_GetSubDetails_FullMethodName      = "/subscription.SubscriptionService/GetSubDetails"
+	SubscriptionService_CheckSubscription_FullMethodName  = "/subscription.SubscriptionService/CheckSubscription"
+	SubscriptionService_ListPlans_FullMethodName          = "/subscription.SubscriptionService/ListPlans"
+	SubscriptionService_AddToBalance_FullMethodName       = "/subscription.SubscriptionService/AddToBalance"
+	SubscriptionService_ExtractFromBalance_FullMethodName = "/subscription.SubscriptionService/ExtractFromBalance"
 )
 
 // SubscriptionServiceClient is the client API for SubscriptionService service.
@@ -405,6 +407,8 @@ type SubscriptionServiceClient interface {
 	GetSubDetails(ctx context.Context, in *GetSubRequest, opts ...grpc.CallOption) (*GetSubResponse, error)
 	CheckSubscription(ctx context.Context, in *CheckSubsRequest, opts ...grpc.CallOption) (*CheckSubsResponse, error)
 	ListPlans(ctx context.Context, in *PlansRequest, opts ...grpc.CallOption) (*PlansResponse, error)
+	AddToBalance(ctx context.Context, in *AddToBalanceRequest, opts ...grpc.CallOption) (*AddToBalanceResponse, error)
+	ExtractFromBalance(ctx context.Context, in *ExtractFromBalanceRequest, opts ...grpc.CallOption) (*ExtractFromBalanceResponse, error)
 }
 
 type subscriptionServiceClient struct {
@@ -475,6 +479,26 @@ func (c *subscriptionServiceClient) ListPlans(ctx context.Context, in *PlansRequ
 	return out, nil
 }
 
+func (c *subscriptionServiceClient) AddToBalance(ctx context.Context, in *AddToBalanceRequest, opts ...grpc.CallOption) (*AddToBalanceResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(AddToBalanceResponse)
+	err := c.cc.Invoke(ctx, SubscriptionService_AddToBalance_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *subscriptionServiceClient) ExtractFromBalance(ctx context.Context, in *ExtractFromBalanceRequest, opts ...grpc.CallOption) (*ExtractFromBalanceResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ExtractFromBalanceResponse)
+	err := c.cc.Invoke(ctx, SubscriptionService_ExtractFromBalance_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // SubscriptionServiceServer is the server API for SubscriptionService service.
 // All implementations must embed UnimplementedSubscriptionServiceServer
 // for forward compatibility.
@@ -485,6 +509,8 @@ type SubscriptionServiceServer interface {
 	GetSubDetails(context.Context, *GetSubRequest) (*GetSubResponse, error)
 	CheckSubscription(context.Context, *CheckSubsRequest) (*CheckSubsResponse, error)
 	ListPlans(context.Context, *PlansRequest) (*PlansResponse, error)
+	AddToBalance(context.Context, *AddToBalanceRequest) (*AddToBalanceResponse, error)
+	ExtractFromBalance(context.Context, *ExtractFromBalanceRequest) (*ExtractFromBalanceResponse, error)
 	mustEmbedUnimplementedSubscriptionServiceServer()
 }
 
@@ -512,6 +538,12 @@ func (UnimplementedSubscriptionServiceServer) CheckSubscription(context.Context,
 }
 func (UnimplementedSubscriptionServiceServer) ListPlans(context.Context, *PlansRequest) (*PlansResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ListPlans not implemented")
+}
+func (UnimplementedSubscriptionServiceServer) AddToBalance(context.Context, *AddToBalanceRequest) (*AddToBalanceResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method AddToBalance not implemented")
+}
+func (UnimplementedSubscriptionServiceServer) ExtractFromBalance(context.Context, *ExtractFromBalanceRequest) (*ExtractFromBalanceResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ExtractFromBalance not implemented")
 }
 func (UnimplementedSubscriptionServiceServer) mustEmbedUnimplementedSubscriptionServiceServer() {}
 func (UnimplementedSubscriptionServiceServer) testEmbeddedByValue()                             {}
@@ -642,6 +674,42 @@ func _SubscriptionService_ListPlans_Handler(srv interface{}, ctx context.Context
 	return interceptor(ctx, in, info, handler)
 }
 
+func _SubscriptionService_AddToBalance_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AddToBalanceRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SubscriptionServiceServer).AddToBalance(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SubscriptionService_AddToBalance_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SubscriptionServiceServer).AddToBalance(ctx, req.(*AddToBalanceRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _SubscriptionService_ExtractFromBalance_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ExtractFromBalanceRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(SubscriptionServiceServer).ExtractFromBalance(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: SubscriptionService_ExtractFromBalance_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(SubscriptionServiceServer).ExtractFromBalance(ctx, req.(*ExtractFromBalanceRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // SubscriptionService_ServiceDesc is the grpc.ServiceDesc for SubscriptionService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -672,6 +740,14 @@ var SubscriptionService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "ListPlans",
 			Handler:    _SubscriptionService_ListPlans_Handler,
+		},
+		{
+			MethodName: "AddToBalance",
+			Handler:    _SubscriptionService_AddToBalance_Handler,
+		},
+		{
+			MethodName: "ExtractFromBalance",
+			Handler:    _SubscriptionService_ExtractFromBalance_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
