@@ -1,0 +1,479 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Subscription API",
+    "description": "API for managing user subscriptions.",
+    "version": "1.0",
+    "contact": {
+      "name": "Support Team",
+      "url": "https://yourdomain.com",
+      "email": "support@yourdomain.com"
+    }
+  },
+  "tags": [
+    {
+      "name": "Subscription"
+    },
+    {
+      "name": "SubscriptionService"
+    }
+  ],
+  "schemes": [
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/v1/subscription": {
+      "get": {
+        "summary": "Get subscription details",
+        "description": "Returns the details of the current active subscription.",
+        "operationId": "Subscription_GetSubDetails",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/subscriptionGetSubResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "Subscription"
+        ]
+      },
+      "delete": {
+        "summary": "Unsubscribe",
+        "description": "Cancels the user's current subscription.",
+        "operationId": "Subscription_Unsubscribe",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/subscriptionUnSubsResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "Subscription"
+        ]
+      },
+      "post": {
+        "summary": "Subscribe user to a plan",
+        "description": "Creates a new subscription for the user based on the plan ID provided.",
+        "operationId": "Subscription_Subscribe",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/subscriptionSubsResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/subscriptionSubsRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Subscription"
+        ]
+      }
+    },
+    "/v1/subscription/add": {
+      "patch": {
+        "summary": "Add to subscription balance",
+        "description": "Increments the subscription's remaining limit.",
+        "operationId": "Subscription_AddToBalance",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/subscriptionAddToBalanceResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/subscriptionAddToBalanceRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Subscription"
+        ]
+      }
+    },
+    "/v1/subscription/check": {
+      "get": {
+        "summary": "Check if user is subscribed",
+        "description": "Returns the status of the user's subscription.",
+        "operationId": "Subscription_CheckSubscription",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/subscriptionCheckSubsResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "Subscription"
+        ]
+      }
+    },
+    "/v1/subscription/extract": {
+      "patch": {
+        "summary": "Deduct from subscription balance",
+        "description": "Subtracts a specified value from the subscription's remaining limit.",
+        "operationId": "Subscription_ExtractFromBalance",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/subscriptionExtractFromBalanceResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/subscriptionExtractFromBalanceRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Subscription"
+        ]
+      }
+    },
+    "/v1/subscription/plan": {
+      "put": {
+        "summary": "Change user subscription plan",
+        "description": "Updates the user's active subscription to a new plan.",
+        "operationId": "Subscription_ChangeSubsPlan",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/subscriptionChangePlanResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/subscriptionChangePlanRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Subscription"
+        ]
+      }
+    },
+    "/v1/subscription/plans": {
+      "get": {
+        "summary": "List all plans",
+        "description": "Retrieves all available subscription plans.",
+        "operationId": "Subscription_ListPlans",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/subscriptionPlansResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "Subscription"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "googlerpcStatus": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "details": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/protobufAny"
+          }
+        }
+      }
+    },
+    "protobufAny": {
+      "type": "object",
+      "properties": {
+        "@type": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": {}
+    },
+    "subscriptionAddToBalanceRequest": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "subscriptionAddToBalanceResponse": {
+      "type": "object",
+      "properties": {
+        "opStatus": {
+          "$ref": "#/definitions/subscriptionStatus"
+        },
+        "msg": {
+          "type": "string"
+        },
+        "left": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "subscriptionChangePlanRequest": {
+      "type": "object",
+      "properties": {
+        "newPlanId": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "subscriptionChangePlanResponse": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "$ref": "#/definitions/subscriptionStatus"
+        }
+      }
+    },
+    "subscriptionCheckSubsResponse": {
+      "type": "object",
+      "properties": {
+        "subStatus": {
+          "$ref": "#/definitions/subscriptionStatus"
+        }
+      }
+    },
+    "subscriptionDuration": {
+      "type": "string",
+      "enum": [
+        "DURATION_UNSPECIFIED",
+        "DURATION_1_MONTH",
+        "DURATION_3_MONTHS",
+        "DURATION_6_MONTHS",
+        "DURATION_12_MONTHS"
+      ],
+      "default": "DURATION_UNSPECIFIED"
+    },
+    "subscriptionExtractFromBalanceRequest": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "subscriptionExtractFromBalanceResponse": {
+      "type": "object",
+      "properties": {
+        "opStatus": {
+          "$ref": "#/definitions/subscriptionStatus"
+        },
+        "msg": {
+          "type": "string"
+        },
+        "left": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "subscriptionGetSubResponse": {
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "planId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "planName": {
+          "type": "string"
+        },
+        "remainingLimit": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "expiresAt": {
+          "type": "string"
+        }
+      }
+    },
+    "subscriptionPlan": {
+      "type": "object",
+      "properties": {
+        "planId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "rentalLimit": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "price": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "duration": {
+          "$ref": "#/definitions/subscriptionDuration",
+          "title": "\"1/3/6/12 месяцев\""
+        }
+      }
+    },
+    "subscriptionPlansResponse": {
+      "type": "object",
+      "properties": {
+        "plans": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/subscriptionPlan"
+          }
+        }
+      }
+    },
+    "subscriptionStatus": {
+      "type": "string",
+      "enum": [
+        "STATUS_OK",
+        "STATUS_INVALID_PLAN",
+        "STATUS_INVALID_USER",
+        "STATUS_ALREADY_SUBSCRIBED",
+        "STATUS_SUBSCRIPTION_NOTFOUND",
+        "STATUS_INTERNAL_ERROR",
+        "STATUS_SUBSCRIBED",
+        "STATUS_NOT_SUBSCRIBED"
+      ],
+      "default": "STATUS_OK"
+    },
+    "subscriptionSubsRequest": {
+      "type": "object",
+      "properties": {
+        "planId": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "subscriptionSubsResponse": {
+      "type": "object",
+      "properties": {
+        "subId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "status": {
+          "$ref": "#/definitions/subscriptionStatus"
+        }
+      }
+    },
+    "subscriptionUnSubsResponse": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "$ref": "#/definitions/subscriptionStatus"
+        }
+      }
+    }
+  }
+}

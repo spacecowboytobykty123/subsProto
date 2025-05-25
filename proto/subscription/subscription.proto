@@ -4,12 +4,33 @@ package subscription;
 
 option go_package = "tsubs.v1;subs";
 import "google/api/annotations.proto";
+import "protoc-gen-openapiv2/options/annotations.proto";
+
+option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {
+  info: {
+    title: "Subscription API";
+    version: "1.0";
+    description: "API for managing user subscriptions.";
+    contact: {
+      name: "Support Team";
+      url: "https://yourdomain.com";
+      email: "support@yourdomain.com";
+    }
+  };
+  schemes: HTTPS;
+  consumes: "application/json";
+  produces: "application/json";
+};
 
 service Subscription {
   rpc Subscribe (SubsRequest) returns (SubsResponse) {
     option (google.api.http) = {
       post: "/v1/subscription"
       body: "*"
+    };
+    option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
+      summary: "Subscribe user to a plan"
+      description: "Creates a new subscription for the user based on the plan ID provided."
     };
   }
 
@@ -18,18 +39,29 @@ service Subscription {
       put: "/v1/subscription/plan"
       body: "*"
     };
+    option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
+      summary: "Change user subscription plan"
+      description: "Updates the user's active subscription to a new plan."
+    };
   }
 
   rpc Unsubscribe (UnSubsRequest) returns (UnSubsResponse) {
     option (google.api.http) = {
       delete: "/v1/subscription"
     };
-
+    option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
+      summary: "Unsubscribe"
+      description: "Cancels the user's current subscription."
+    };
   }
 
   rpc GetSubDetails (GetSubRequest) returns (GetSubResponse) {
     option (google.api.http) = {
       get: "/v1/subscription"
+    };
+    option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
+      summary: "Get subscription details"
+      description: "Returns the details of the current active subscription."
     };
   }
 
@@ -37,11 +69,19 @@ service Subscription {
     option (google.api.http) = {
       get: "/v1/subscription/check"
     };
+    option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
+      summary: "Check if user is subscribed"
+      description: "Returns the status of the user's subscription."
+    };
   }
 
   rpc ListPlans (PlansRequest) returns (PlansResponse) {
     option (google.api.http) = {
       get: "/v1/subscription/plans"
+    };
+    option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
+      summary: "List all plans"
+      description: "Retrieves all available subscription plans."
     };
   }
 
@@ -50,6 +90,10 @@ service Subscription {
       patch: "/v1/subscription/extract"
       body: "*"
     };
+    option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
+      summary: "Deduct from subscription balance"
+      description: "Subtracts a specified value from the subscription's remaining limit."
+    };
   }
 
   rpc AddToBalance (AddToBalanceRequest) returns (AddToBalanceResponse) {
@@ -57,8 +101,15 @@ service Subscription {
       patch: "/v1/subscription/add"
       body: "*"
     };
+    option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
+      summary: "Add to subscription balance"
+      description: "Increments the subscription's remaining limit."
+    };
   }
 }
+
+
+
 
 service SubscriptionService {
   rpc Subscribe (SubsRequest) returns (SubsResponse);

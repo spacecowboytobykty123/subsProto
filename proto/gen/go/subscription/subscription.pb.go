@@ -7,6 +7,7 @@
 package subs
 
 import (
+	_ "github.com/grpc-ecosystem/grpc-gateway/v2/protoc-gen-openapiv2/options"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
@@ -973,7 +974,7 @@ var File_subscription_subscription_proto protoreflect.FileDescriptor
 
 const file_subscription_subscription_proto_rawDesc = "" +
 	"\n" +
-	"\x1fsubscription/subscription.proto\x12\fsubscription\x1a\x1cgoogle/api/annotations.proto\"&\n" +
+	"\x1fsubscription/subscription.proto\x12\fsubscription\x1a\x1cgoogle/api/annotations.proto\x1a.protoc-gen-openapiv2/options/annotations.proto\"&\n" +
 	"\vSubsRequest\x12\x17\n" +
 	"\aplan_id\x18\x01 \x01(\x05R\x06planId\"S\n" +
 	"\fSubsResponse\x12\x15\n" +
@@ -1034,16 +1035,16 @@ const file_subscription_subscription_proto_rawDesc = "" +
 	"\x10DURATION_1_MONTH\x10\x01\x12\x15\n" +
 	"\x11DURATION_3_MONTHS\x10\x03\x12\x15\n" +
 	"\x11DURATION_6_MONTHS\x10\x06\x12\x16\n" +
-	"\x12DURATION_12_MONTHS\x10\f2\x93\a\n" +
-	"\fSubscription\x12_\n" +
-	"\tSubscribe\x12\x19.subscription.SubsRequest\x1a\x1a.subscription.SubsResponse\"\x1b\x82\xd3\xe4\x93\x02\x15:\x01*\"\x10/v1/subscription\x12u\n" +
-	"\x0eChangeSubsPlan\x12\x1f.subscription.ChangePlanRequest\x1a .subscription.ChangePlanResponse\" \x82\xd3\xe4\x93\x02\x1a:\x01*\x1a\x15/v1/subscription/plan\x12b\n" +
-	"\vUnsubscribe\x12\x1b.subscription.UnSubsRequest\x1a\x1c.subscription.UnSubsResponse\"\x18\x82\xd3\xe4\x93\x02\x12*\x10/v1/subscription\x12d\n" +
-	"\rGetSubDetails\x12\x1b.subscription.GetSubRequest\x1a\x1c.subscription.GetSubResponse\"\x18\x82\xd3\xe4\x93\x02\x12\x12\x10/v1/subscription\x12t\n" +
-	"\x11CheckSubscription\x12\x1e.subscription.CheckSubsRequest\x1a\x1f.subscription.CheckSubsResponse\"\x1e\x82\xd3\xe4\x93\x02\x18\x12\x16/v1/subscription/check\x12d\n" +
-	"\tListPlans\x12\x1a.subscription.PlansRequest\x1a\x1b.subscription.PlansResponse\"\x1e\x82\xd3\xe4\x93\x02\x18\x12\x16/v1/subscription/plans\x12\x8c\x01\n" +
-	"\x12ExtractFromBalance\x12'.subscription.ExtractFromBalanceRequest\x1a(.subscription.ExtractFromBalanceResponse\"#\x82\xd3\xe4\x93\x02\x1d:\x01*2\x18/v1/subscription/extract\x12v\n" +
-	"\fAddToBalance\x12!.subscription.AddToBalanceRequest\x1a\".subscription.AddToBalanceResponse\"\x1f\x82\xd3\xe4\x93\x02\x19:\x01*2\x14/v1/subscription/add2\xa0\x05\n" +
+	"\x12DURATION_12_MONTHS\x10\f2\xb5\f\n" +
+	"\fSubscription\x12\xc5\x01\n" +
+	"\tSubscribe\x12\x19.subscription.SubsRequest\x1a\x1a.subscription.SubsResponse\"\x80\x01\x92Ab\x12\x18Subscribe user to a plan\x1aFCreates a new subscription for the user based on the plan ID provided.\x82\xd3\xe4\x93\x02\x15:\x01*\"\x10/v1/subscription\x12\xce\x01\n" +
+	"\x0eChangeSubsPlan\x12\x1f.subscription.ChangePlanRequest\x1a .subscription.ChangePlanResponse\"y\x92AV\x12\x1dChange user subscription plan\x1a5Updates the user's active subscription to a new plan.\x82\xd3\xe4\x93\x02\x1a:\x01*\x1a\x15/v1/subscription/plan\x12\x9c\x01\n" +
+	"\vUnsubscribe\x12\x1b.subscription.UnSubsRequest\x1a\x1c.subscription.UnSubsResponse\"R\x92A7\x12\vUnsubscribe\x1a(Cancels the user's current subscription.\x82\xd3\xe4\x93\x02\x12*\x10/v1/subscription\x12\xba\x01\n" +
+	"\rGetSubDetails\x12\x1b.subscription.GetSubRequest\x1a\x1c.subscription.GetSubResponse\"n\x92AS\x12\x18Get subscription details\x1a7Returns the details of the current active subscription.\x82\xd3\xe4\x93\x02\x12\x12\x10/v1/subscription\x12\xc4\x01\n" +
+	"\x11CheckSubscription\x12\x1e.subscription.CheckSubsRequest\x1a\x1f.subscription.CheckSubsResponse\"n\x92AM\x12\x1bCheck if user is subscribed\x1a.Returns the status of the user's subscription.\x82\xd3\xe4\x93\x02\x18\x12\x16/v1/subscription/check\x12\xa4\x01\n" +
+	"\tListPlans\x12\x1a.subscription.PlansRequest\x1a\x1b.subscription.PlansResponse\"^\x92A=\x12\x0eList all plans\x1a+Retrieves all available subscription plans.\x82\xd3\xe4\x93\x02\x18\x12\x16/v1/subscription/plans\x12\xf8\x01\n" +
+	"\x12ExtractFromBalance\x12'.subscription.ExtractFromBalanceRequest\x1a(.subscription.ExtractFromBalanceResponse\"\x8e\x01\x92Ah\x12 Deduct from subscription balance\x1aDSubtracts a specified value from the subscription's remaining limit.\x82\xd3\xe4\x93\x02\x1d:\x01*2\x18/v1/subscription/extract\x12\xc6\x01\n" +
+	"\fAddToBalance\x12!.subscription.AddToBalanceRequest\x1a\".subscription.AddToBalanceResponse\"o\x92AM\x12\x1bAdd to subscription balance\x1a.Increments the subscription's remaining limit.\x82\xd3\xe4\x93\x02\x19:\x01*2\x14/v1/subscription/add2\xa0\x05\n" +
 	"\x13SubscriptionService\x12B\n" +
 	"\tSubscribe\x12\x19.subscription.SubsRequest\x1a\x1a.subscription.SubsResponse\x12S\n" +
 	"\x0eChangeSubsPlan\x12\x1f.subscription.ChangePlanRequest\x1a .subscription.ChangePlanResponse\x12H\n" +
@@ -1052,7 +1053,9 @@ const file_subscription_subscription_proto_rawDesc = "" +
 	"\x11CheckSubscription\x12\x1e.subscription.CheckSubsRequest\x1a\x1f.subscription.CheckSubsResponse\x12D\n" +
 	"\tListPlans\x12\x1a.subscription.PlansRequest\x1a\x1b.subscription.PlansResponse\x12U\n" +
 	"\fAddToBalance\x12!.subscription.AddToBalanceRequest\x1a\".subscription.AddToBalanceResponse\x12g\n" +
-	"\x12ExtractFromBalance\x12'.subscription.ExtractFromBalanceRequest\x1a(.subscription.ExtractFromBalanceResponseB\x0fZ\rtsubs.v1;subsb\x06proto3"
+	"\x12ExtractFromBalance\x12'.subscription.ExtractFromBalanceRequest\x1a(.subscription.ExtractFromBalanceResponseB\xb9\x01\x92A\xa6\x01\x12}\n" +
+	"\x10Subscription API\x12$API for managing user subscriptions.\">\n" +
+	"\fSupport Team\x12\x16https://yourdomain.com\x1a\x16support@yourdomain.com2\x031.0*\x01\x022\x10application/json:\x10application/jsonZ\rtsubs.v1;subsb\x06proto3"
 
 var (
 	file_subscription_subscription_proto_rawDescOnce sync.Once
