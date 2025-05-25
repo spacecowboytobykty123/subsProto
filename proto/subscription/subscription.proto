@@ -24,6 +24,7 @@ service Subscription {
     option (google.api.http) = {
       delete: "/v1/subscription"
     };
+
   }
 
   rpc GetSubDetails (GetSubRequest) returns (GetSubResponse) {
@@ -41,6 +42,20 @@ service Subscription {
   rpc ListPlans (PlansRequest) returns (PlansResponse) {
     option (google.api.http) = {
       get: "/v1/subscription/plans"
+    };
+  }
+
+  rpc ExtractFromBalance (ExtractFromBalanceRequest) returns (ExtractFromBalanceResponse) {
+    option (google.api.http) = {
+      patch: "/v1/subscription/extract"
+      body: "*"
+    };
+  }
+
+  rpc AddToBalance (AddToBalanceRequest) returns (AddToBalanceResponse) {
+    option (google.api.http) = {
+      patch: "/v1/subscription/add"
+      body: "*"
     };
   }
 }
@@ -125,4 +140,24 @@ message Plan {
   int32 rental_limit = 4;
   int32 price = 5;
   Duration duration = 6; // "1/3/6/12 месяцев"
+}
+
+message ExtractFromBalanceRequest {
+  int64 value = 1;
+}
+
+message ExtractFromBalanceResponse {
+  Status opStatus = 1;
+  string msg = 2;
+  int64 left = 3;
+}
+
+message AddToBalanceRequest {
+  int64 value = 1;
+}
+
+message AddToBalanceResponse{
+  Status opStatus = 1;
+  string msg = 2;
+  int64 left = 3;
 }

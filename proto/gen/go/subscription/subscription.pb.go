@@ -761,6 +761,214 @@ func (x *Plan) GetDuration() Duration {
 	return Duration_DURATION_UNSPECIFIED
 }
 
+type ExtractFromBalanceRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Value         int64                  `protobuf:"varint,1,opt,name=value,proto3" json:"value,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ExtractFromBalanceRequest) Reset() {
+	*x = ExtractFromBalanceRequest{}
+	mi := &file_subscription_subscription_proto_msgTypes[13]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ExtractFromBalanceRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ExtractFromBalanceRequest) ProtoMessage() {}
+
+func (x *ExtractFromBalanceRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_subscription_subscription_proto_msgTypes[13]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ExtractFromBalanceRequest.ProtoReflect.Descriptor instead.
+func (*ExtractFromBalanceRequest) Descriptor() ([]byte, []int) {
+	return file_subscription_subscription_proto_rawDescGZIP(), []int{13}
+}
+
+func (x *ExtractFromBalanceRequest) GetValue() int64 {
+	if x != nil {
+		return x.Value
+	}
+	return 0
+}
+
+type ExtractFromBalanceResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	OpStatus      Status                 `protobuf:"varint,1,opt,name=opStatus,proto3,enum=subscription.Status" json:"opStatus,omitempty"`
+	Msg           string                 `protobuf:"bytes,2,opt,name=msg,proto3" json:"msg,omitempty"`
+	Left          int64                  `protobuf:"varint,3,opt,name=left,proto3" json:"left,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ExtractFromBalanceResponse) Reset() {
+	*x = ExtractFromBalanceResponse{}
+	mi := &file_subscription_subscription_proto_msgTypes[14]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ExtractFromBalanceResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ExtractFromBalanceResponse) ProtoMessage() {}
+
+func (x *ExtractFromBalanceResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_subscription_subscription_proto_msgTypes[14]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ExtractFromBalanceResponse.ProtoReflect.Descriptor instead.
+func (*ExtractFromBalanceResponse) Descriptor() ([]byte, []int) {
+	return file_subscription_subscription_proto_rawDescGZIP(), []int{14}
+}
+
+func (x *ExtractFromBalanceResponse) GetOpStatus() Status {
+	if x != nil {
+		return x.OpStatus
+	}
+	return Status_STATUS_OK
+}
+
+func (x *ExtractFromBalanceResponse) GetMsg() string {
+	if x != nil {
+		return x.Msg
+	}
+	return ""
+}
+
+func (x *ExtractFromBalanceResponse) GetLeft() int64 {
+	if x != nil {
+		return x.Left
+	}
+	return 0
+}
+
+type AddToBalanceRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Value         int64                  `protobuf:"varint,1,opt,name=value,proto3" json:"value,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddToBalanceRequest) Reset() {
+	*x = AddToBalanceRequest{}
+	mi := &file_subscription_subscription_proto_msgTypes[15]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddToBalanceRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddToBalanceRequest) ProtoMessage() {}
+
+func (x *AddToBalanceRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_subscription_subscription_proto_msgTypes[15]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddToBalanceRequest.ProtoReflect.Descriptor instead.
+func (*AddToBalanceRequest) Descriptor() ([]byte, []int) {
+	return file_subscription_subscription_proto_rawDescGZIP(), []int{15}
+}
+
+func (x *AddToBalanceRequest) GetValue() int64 {
+	if x != nil {
+		return x.Value
+	}
+	return 0
+}
+
+type AddToBalanceResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	OpStatus      Status                 `protobuf:"varint,1,opt,name=opStatus,proto3,enum=subscription.Status" json:"opStatus,omitempty"`
+	Msg           string                 `protobuf:"bytes,2,opt,name=msg,proto3" json:"msg,omitempty"`
+	Left          int64                  `protobuf:"varint,3,opt,name=left,proto3" json:"left,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddToBalanceResponse) Reset() {
+	*x = AddToBalanceResponse{}
+	mi := &file_subscription_subscription_proto_msgTypes[16]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddToBalanceResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddToBalanceResponse) ProtoMessage() {}
+
+func (x *AddToBalanceResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_subscription_subscription_proto_msgTypes[16]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddToBalanceResponse.ProtoReflect.Descriptor instead.
+func (*AddToBalanceResponse) Descriptor() ([]byte, []int) {
+	return file_subscription_subscription_proto_rawDescGZIP(), []int{16}
+}
+
+func (x *AddToBalanceResponse) GetOpStatus() Status {
+	if x != nil {
+		return x.OpStatus
+	}
+	return Status_STATUS_OK
+}
+
+func (x *AddToBalanceResponse) GetMsg() string {
+	if x != nil {
+		return x.Msg
+	}
+	return ""
+}
+
+func (x *AddToBalanceResponse) GetLeft() int64 {
+	if x != nil {
+		return x.Left
+	}
+	return 0
+}
+
 var File_subscription_subscription_proto protoreflect.FileDescriptor
 
 const file_subscription_subscription_proto_rawDesc = "" +
@@ -799,7 +1007,19 @@ const file_subscription_subscription_proto_rawDesc = "" +
 	"\vdescription\x18\x03 \x01(\tR\vdescription\x12!\n" +
 	"\frental_limit\x18\x04 \x01(\x05R\vrentalLimit\x12\x14\n" +
 	"\x05price\x18\x05 \x01(\x05R\x05price\x122\n" +
-	"\bduration\x18\x06 \x01(\x0e2\x16.subscription.DurationR\bduration*\xd7\x01\n" +
+	"\bduration\x18\x06 \x01(\x0e2\x16.subscription.DurationR\bduration\"1\n" +
+	"\x19ExtractFromBalanceRequest\x12\x14\n" +
+	"\x05value\x18\x01 \x01(\x03R\x05value\"t\n" +
+	"\x1aExtractFromBalanceResponse\x120\n" +
+	"\bopStatus\x18\x01 \x01(\x0e2\x14.subscription.StatusR\bopStatus\x12\x10\n" +
+	"\x03msg\x18\x02 \x01(\tR\x03msg\x12\x12\n" +
+	"\x04left\x18\x03 \x01(\x03R\x04left\"+\n" +
+	"\x13AddToBalanceRequest\x12\x14\n" +
+	"\x05value\x18\x01 \x01(\x03R\x05value\"n\n" +
+	"\x14AddToBalanceResponse\x120\n" +
+	"\bopStatus\x18\x01 \x01(\x0e2\x14.subscription.StatusR\bopStatus\x12\x10\n" +
+	"\x03msg\x18\x02 \x01(\tR\x03msg\x12\x12\n" +
+	"\x04left\x18\x03 \x01(\x03R\x04left*\xd7\x01\n" +
 	"\x06Status\x12\r\n" +
 	"\tSTATUS_OK\x10\x00\x12\x17\n" +
 	"\x13STATUS_INVALID_PLAN\x10\x01\x12\x17\n" +
@@ -814,14 +1034,16 @@ const file_subscription_subscription_proto_rawDesc = "" +
 	"\x10DURATION_1_MONTH\x10\x01\x12\x15\n" +
 	"\x11DURATION_3_MONTHS\x10\x03\x12\x15\n" +
 	"\x11DURATION_6_MONTHS\x10\x06\x12\x16\n" +
-	"\x12DURATION_12_MONTHS\x10\f2\x8c\x05\n" +
+	"\x12DURATION_12_MONTHS\x10\f2\x93\a\n" +
 	"\fSubscription\x12_\n" +
 	"\tSubscribe\x12\x19.subscription.SubsRequest\x1a\x1a.subscription.SubsResponse\"\x1b\x82\xd3\xe4\x93\x02\x15:\x01*\"\x10/v1/subscription\x12u\n" +
 	"\x0eChangeSubsPlan\x12\x1f.subscription.ChangePlanRequest\x1a .subscription.ChangePlanResponse\" \x82\xd3\xe4\x93\x02\x1a:\x01*\x1a\x15/v1/subscription/plan\x12b\n" +
 	"\vUnsubscribe\x12\x1b.subscription.UnSubsRequest\x1a\x1c.subscription.UnSubsResponse\"\x18\x82\xd3\xe4\x93\x02\x12*\x10/v1/subscription\x12d\n" +
 	"\rGetSubDetails\x12\x1b.subscription.GetSubRequest\x1a\x1c.subscription.GetSubResponse\"\x18\x82\xd3\xe4\x93\x02\x12\x12\x10/v1/subscription\x12t\n" +
 	"\x11CheckSubscription\x12\x1e.subscription.CheckSubsRequest\x1a\x1f.subscription.CheckSubsResponse\"\x1e\x82\xd3\xe4\x93\x02\x18\x12\x16/v1/subscription/check\x12d\n" +
-	"\tListPlans\x12\x1a.subscription.PlansRequest\x1a\x1b.subscription.PlansResponse\"\x1e\x82\xd3\xe4\x93\x02\x18\x12\x16/v1/subscription/plans2\xe0\x03\n" +
+	"\tListPlans\x12\x1a.subscription.PlansRequest\x1a\x1b.subscription.PlansResponse\"\x1e\x82\xd3\xe4\x93\x02\x18\x12\x16/v1/subscription/plans\x12\x8c\x01\n" +
+	"\x12ExtractFromBalance\x12'.subscription.ExtractFromBalanceRequest\x1a(.subscription.ExtractFromBalanceResponse\"#\x82\xd3\xe4\x93\x02\x1d:\x01*2\x18/v1/subscription/extract\x12v\n" +
+	"\fAddToBalance\x12!.subscription.AddToBalanceRequest\x1a\".subscription.AddToBalanceResponse\"\x1f\x82\xd3\xe4\x93\x02\x19:\x01*2\x14/v1/subscription/add2\xe0\x03\n" +
 	"\x13SubscriptionService\x12B\n" +
 	"\tSubscribe\x12\x19.subscription.SubsRequest\x1a\x1a.subscription.SubsResponse\x12S\n" +
 	"\x0eChangeSubsPlan\x12\x1f.subscription.ChangePlanRequest\x1a .subscription.ChangePlanResponse\x12H\n" +
@@ -843,23 +1065,27 @@ func file_subscription_subscription_proto_rawDescGZIP() []byte {
 }
 
 var file_subscription_subscription_proto_enumTypes = make([]protoimpl.EnumInfo, 2)
-var file_subscription_subscription_proto_msgTypes = make([]protoimpl.MessageInfo, 13)
+var file_subscription_subscription_proto_msgTypes = make([]protoimpl.MessageInfo, 17)
 var file_subscription_subscription_proto_goTypes = []any{
-	(Status)(0),                // 0: subscription.Status
-	(Duration)(0),              // 1: subscription.Duration
-	(*SubsRequest)(nil),        // 2: subscription.SubsRequest
-	(*SubsResponse)(nil),       // 3: subscription.SubsResponse
-	(*ChangePlanRequest)(nil),  // 4: subscription.ChangePlanRequest
-	(*ChangePlanResponse)(nil), // 5: subscription.ChangePlanResponse
-	(*UnSubsRequest)(nil),      // 6: subscription.UnSubsRequest
-	(*UnSubsResponse)(nil),     // 7: subscription.UnSubsResponse
-	(*GetSubRequest)(nil),      // 8: subscription.GetSubRequest
-	(*GetSubResponse)(nil),     // 9: subscription.GetSubResponse
-	(*CheckSubsRequest)(nil),   // 10: subscription.CheckSubsRequest
-	(*CheckSubsResponse)(nil),  // 11: subscription.CheckSubsResponse
-	(*PlansRequest)(nil),       // 12: subscription.PlansRequest
-	(*PlansResponse)(nil),      // 13: subscription.PlansResponse
-	(*Plan)(nil),               // 14: subscription.Plan
+	(Status)(0),                        // 0: subscription.Status
+	(Duration)(0),                      // 1: subscription.Duration
+	(*SubsRequest)(nil),                // 2: subscription.SubsRequest
+	(*SubsResponse)(nil),               // 3: subscription.SubsResponse
+	(*ChangePlanRequest)(nil),          // 4: subscription.ChangePlanRequest
+	(*ChangePlanResponse)(nil),         // 5: subscription.ChangePlanResponse
+	(*UnSubsRequest)(nil),              // 6: subscription.UnSubsRequest
+	(*UnSubsResponse)(nil),             // 7: subscription.UnSubsResponse
+	(*GetSubRequest)(nil),              // 8: subscription.GetSubRequest
+	(*GetSubResponse)(nil),             // 9: subscription.GetSubResponse
+	(*CheckSubsRequest)(nil),           // 10: subscription.CheckSubsRequest
+	(*CheckSubsResponse)(nil),          // 11: subscription.CheckSubsResponse
+	(*PlansRequest)(nil),               // 12: subscription.PlansRequest
+	(*PlansResponse)(nil),              // 13: subscription.PlansResponse
+	(*Plan)(nil),                       // 14: subscription.Plan
+	(*ExtractFromBalanceRequest)(nil),  // 15: subscription.ExtractFromBalanceRequest
+	(*ExtractFromBalanceResponse)(nil), // 16: subscription.ExtractFromBalanceResponse
+	(*AddToBalanceRequest)(nil),        // 17: subscription.AddToBalanceRequest
+	(*AddToBalanceResponse)(nil),       // 18: subscription.AddToBalanceResponse
 }
 var file_subscription_subscription_proto_depIdxs = []int32{
 	0,  // 0: subscription.SubsResponse.status:type_name -> subscription.Status
@@ -868,35 +1094,41 @@ var file_subscription_subscription_proto_depIdxs = []int32{
 	0,  // 3: subscription.CheckSubsResponse.sub_status:type_name -> subscription.Status
 	14, // 4: subscription.PlansResponse.plans:type_name -> subscription.Plan
 	1,  // 5: subscription.Plan.duration:type_name -> subscription.Duration
-	2,  // 6: subscription.Subscription.Subscribe:input_type -> subscription.SubsRequest
-	4,  // 7: subscription.Subscription.ChangeSubsPlan:input_type -> subscription.ChangePlanRequest
-	6,  // 8: subscription.Subscription.Unsubscribe:input_type -> subscription.UnSubsRequest
-	8,  // 9: subscription.Subscription.GetSubDetails:input_type -> subscription.GetSubRequest
-	10, // 10: subscription.Subscription.CheckSubscription:input_type -> subscription.CheckSubsRequest
-	12, // 11: subscription.Subscription.ListPlans:input_type -> subscription.PlansRequest
-	2,  // 12: subscription.SubscriptionService.Subscribe:input_type -> subscription.SubsRequest
-	4,  // 13: subscription.SubscriptionService.ChangeSubsPlan:input_type -> subscription.ChangePlanRequest
-	6,  // 14: subscription.SubscriptionService.Unsubscribe:input_type -> subscription.UnSubsRequest
-	8,  // 15: subscription.SubscriptionService.GetSubDetails:input_type -> subscription.GetSubRequest
-	10, // 16: subscription.SubscriptionService.CheckSubscription:input_type -> subscription.CheckSubsRequest
-	12, // 17: subscription.SubscriptionService.ListPlans:input_type -> subscription.PlansRequest
-	3,  // 18: subscription.Subscription.Subscribe:output_type -> subscription.SubsResponse
-	5,  // 19: subscription.Subscription.ChangeSubsPlan:output_type -> subscription.ChangePlanResponse
-	7,  // 20: subscription.Subscription.Unsubscribe:output_type -> subscription.UnSubsResponse
-	9,  // 21: subscription.Subscription.GetSubDetails:output_type -> subscription.GetSubResponse
-	11, // 22: subscription.Subscription.CheckSubscription:output_type -> subscription.CheckSubsResponse
-	13, // 23: subscription.Subscription.ListPlans:output_type -> subscription.PlansResponse
-	3,  // 24: subscription.SubscriptionService.Subscribe:output_type -> subscription.SubsResponse
-	5,  // 25: subscription.SubscriptionService.ChangeSubsPlan:output_type -> subscription.ChangePlanResponse
-	7,  // 26: subscription.SubscriptionService.Unsubscribe:output_type -> subscription.UnSubsResponse
-	9,  // 27: subscription.SubscriptionService.GetSubDetails:output_type -> subscription.GetSubResponse
-	11, // 28: subscription.SubscriptionService.CheckSubscription:output_type -> subscription.CheckSubsResponse
-	13, // 29: subscription.SubscriptionService.ListPlans:output_type -> subscription.PlansResponse
-	18, // [18:30] is the sub-list for method output_type
-	6,  // [6:18] is the sub-list for method input_type
-	6,  // [6:6] is the sub-list for extension type_name
-	6,  // [6:6] is the sub-list for extension extendee
-	0,  // [0:6] is the sub-list for field type_name
+	0,  // 6: subscription.ExtractFromBalanceResponse.opStatus:type_name -> subscription.Status
+	0,  // 7: subscription.AddToBalanceResponse.opStatus:type_name -> subscription.Status
+	2,  // 8: subscription.Subscription.Subscribe:input_type -> subscription.SubsRequest
+	4,  // 9: subscription.Subscription.ChangeSubsPlan:input_type -> subscription.ChangePlanRequest
+	6,  // 10: subscription.Subscription.Unsubscribe:input_type -> subscription.UnSubsRequest
+	8,  // 11: subscription.Subscription.GetSubDetails:input_type -> subscription.GetSubRequest
+	10, // 12: subscription.Subscription.CheckSubscription:input_type -> subscription.CheckSubsRequest
+	12, // 13: subscription.Subscription.ListPlans:input_type -> subscription.PlansRequest
+	15, // 14: subscription.Subscription.ExtractFromBalance:input_type -> subscription.ExtractFromBalanceRequest
+	17, // 15: subscription.Subscription.AddToBalance:input_type -> subscription.AddToBalanceRequest
+	2,  // 16: subscription.SubscriptionService.Subscribe:input_type -> subscription.SubsRequest
+	4,  // 17: subscription.SubscriptionService.ChangeSubsPlan:input_type -> subscription.ChangePlanRequest
+	6,  // 18: subscription.SubscriptionService.Unsubscribe:input_type -> subscription.UnSubsRequest
+	8,  // 19: subscription.SubscriptionService.GetSubDetails:input_type -> subscription.GetSubRequest
+	10, // 20: subscription.SubscriptionService.CheckSubscription:input_type -> subscription.CheckSubsRequest
+	12, // 21: subscription.SubscriptionService.ListPlans:input_type -> subscription.PlansRequest
+	3,  // 22: subscription.Subscription.Subscribe:output_type -> subscription.SubsResponse
+	5,  // 23: subscription.Subscription.ChangeSubsPlan:output_type -> subscription.ChangePlanResponse
+	7,  // 24: subscription.Subscription.Unsubscribe:output_type -> subscription.UnSubsResponse
+	9,  // 25: subscription.Subscription.GetSubDetails:output_type -> subscription.GetSubResponse
+	11, // 26: subscription.Subscription.CheckSubscription:output_type -> subscription.CheckSubsResponse
+	13, // 27: subscription.Subscription.ListPlans:output_type -> subscription.PlansResponse
+	16, // 28: subscription.Subscription.ExtractFromBalance:output_type -> subscription.ExtractFromBalanceResponse
+	18, // 29: subscription.Subscription.AddToBalance:output_type -> subscription.AddToBalanceResponse
+	3,  // 30: subscription.SubscriptionService.Subscribe:output_type -> subscription.SubsResponse
+	5,  // 31: subscription.SubscriptionService.ChangeSubsPlan:output_type -> subscription.ChangePlanResponse
+	7,  // 32: subscription.SubscriptionService.Unsubscribe:output_type -> subscription.UnSubsResponse
+	9,  // 33: subscription.SubscriptionService.GetSubDetails:output_type -> subscription.GetSubResponse
+	11, // 34: subscription.SubscriptionService.CheckSubscription:output_type -> subscription.CheckSubsResponse
+	13, // 35: subscription.SubscriptionService.ListPlans:output_type -> subscription.PlansResponse
+	22, // [22:36] is the sub-list for method output_type
+	8,  // [8:22] is the sub-list for method input_type
+	8,  // [8:8] is the sub-list for extension type_name
+	8,  // [8:8] is the sub-list for extension extendee
+	0,  // [0:8] is the sub-list for field type_name
 }
 
 func init() { file_subscription_subscription_proto_init() }
@@ -910,7 +1142,7 @@ func file_subscription_subscription_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_subscription_subscription_proto_rawDesc), len(file_subscription_subscription_proto_rawDesc)),
 			NumEnums:      2,
-			NumMessages:   13,
+			NumMessages:   17,
 			NumExtensions: 0,
 			NumServices:   2,
 		},
